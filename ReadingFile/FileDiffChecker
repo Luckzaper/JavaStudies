@@ -1,0 +1,78 @@
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+public class main {
+    static String diff(File file1, File file2){
+
+        //create two scanners to read the two files
+        Scanner scanner1 = null;
+        Scanner scanner2 = null;
+        // this variable will be storing the lines of the reading and if there is any difference
+        //between both files this variable will be used to in the print statement
+        int lineNumber = 1;
+
+        //
+
+        //trying to read the file 1
+        try {
+            scanner1 = new Scanner(file1);
+        } catch (FileNotFoundException e) {
+            return file1.getName() + " (" + e.getMessage() + ")"; // getMessage returns the regular message from java FileNotFoundException
+        }
+        //trying to read the file 2
+        try {
+            scanner2 = new Scanner(file2);
+        } catch (FileNotFoundException e) {
+            return file2.getName() + " (" + e.getMessage() + ")";
+        }
+
+        //has next line is a method which reads the file and check if there is another line in the file
+        while (scanner1.hasNextLine() && scanner2.hasNextLine()){
+            String line1 = scanner1.nextLine();// stores the line of the file 1
+            String line2 = scanner2.nextLine();// stores the line of the file 2
+
+            if(!line1.equals(line2)){
+
+
+
+
+            }
+
+            if()
+
+
+
+        }
+
+
+
+
+
+
+
+
+    }
+
+
+    public static void main(String[]args){
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("[Diff Detector]");
+        System.out.println("Enter the name of file 1: ");
+        String option1 = scanner.nextLine();
+        System.out.println("Enter the name of file 2: ");
+        String option2 = scanner.nextLine();
+
+
+
+
+
+    }
+
+
+
+
+
+}
