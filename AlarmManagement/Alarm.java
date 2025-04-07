@@ -20,18 +20,21 @@ public class Alarm extends Thread{
 
     @Override
     public void run(){
-
         try {
-            Thread.sleep(this.timer);
-            for (int i = this.timer / 1000; i < 0; i--) {
-                if (this.timer == 10000) {
-                    System.out.print(this.name + " will go off int 10 seconds");
-                }}
+            while(this.timer >0){
+                Thread.sleep(1000);
+                this.timer -=1000;
 
-        }catch (InterruptedException e) {
+                if (this.timer == 10000) {
+                    System.out.println(this.name + " will go off in 10 seconds");
+                }}
+                System.out.println(this.name + " has gone off!");
+
+            }catch (InterruptedException e) {
             System.out.println(this.name + " has been interrupted at " + this.timer / 1000 + " seconds.");
+            return;
         }
-            System.out.print(this.name + " has gone off!");
+
 
 
 
@@ -39,7 +42,7 @@ public class Alarm extends Thread{
 
     @Override
     public String toString(){
-        return this.name + "is currently at " + this.timer + "seconds";
+        return this.name + " is currently at " + this.timer/1000 + " seconds\n";
     }
 
 }

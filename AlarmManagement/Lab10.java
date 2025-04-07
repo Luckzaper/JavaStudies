@@ -6,28 +6,35 @@ public class Lab10 {
         ArrayList<Alarm> Alarms= new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
+        boolean running =true;
+
         System.out.println("[Alarm System]");
-        while(true){
+        while(running){
             System.out.print("1. Create new alarm\n" +
                     "2. View all alarms\n" +
                     "3. Quit\n");
             System.out.print("Enter option: ");
             int option = scanner.nextInt();
+            scanner.nextLine();
 
             switch (option){
                 case 1:
                     System.out.print("Enter alarm name: ");
-                    String name = scanner.toString();
+                    String name = scanner.nextLine();
                     System.out.print("Enter alarm timer in seconds: ");
                     int sec = scanner.nextInt();
                     Alarm newAlarm = new Alarm(name,sec);
-                    newAlarm.toString();
+                    Alarms.add(newAlarm);
+                    newAlarm.start();
+                    System.out.print(newAlarm.toString());
                     break;
 
                 case 2:
-                    System.out.println("Here are all the alarms still running:");
                     for(Alarm a: Alarms){
-                        System.out.println(a);
+                        System.out.println("Here are all the alarms still running:");
+                        if (a.isAlive()){
+                            System.out.println(a);
+                        }
                     }
                     break;
 
@@ -38,13 +45,14 @@ public class Lab10 {
                     }
                     System.out.println("All alarms have been stopped.");
                     System.out.print("Shutting off...");
+                    running = false;
                     break;
 
 
 
 
-            }
 
+            }
 
         }
 
