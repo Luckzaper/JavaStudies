@@ -2,7 +2,6 @@ package DataStructures;
 
 
 //On this example I am using the LinkedList class already built in on Java
-//
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -44,40 +43,42 @@ public class linkedList_1 {
             System.out.println("3. Quit");
             System.out.print("Option: ");
 
+            int option;
             try {
-                int option = scanner.nextInt();
-                switch (option) {
-                    case 1:
-                        System.out.print("Enter your new head: ");
-                        int newHead = scanner.nextInt();
-                        list.addFirst(newHead);
-                        System.out.println();
-                        break;
-                    case 2:
-                        System.out.println("This is your current LinkedList");
-                        printList(list);
-                        System.out.println();
-                        break;
-                    case 3:
-                        running=false;
-                        break;
-                    default:
-                        System.out.println();
-                        System.out.println("Option not available or invalid input. Please enter a proper number.");
-                        break;
+                 option = scanner.nextInt();
 
-
-                }
 
             } catch (Exception e) {
                 scanner.nextLine();
                 System.out.println("Option not available");
                 continue;
             }
-            scanner.close();
 
 
 
+            switch (option) {
+                case 1:
+                    System.out.print("Enter your new head: ");
+                    int newHead = scanner.nextInt();
+                    list.addFirst(newHead);
+                    System.out.println();
+                    break;
+                case 2:
+                    System.out.println("This is your current LinkedList");
+                    printList(list);
+                    System.out.println();
+                    break;
+                case 3:
+                    running=false;
+                    break;
+                default:
+                    System.out.println();
+                    System.out.println("Option not available or invalid input. Please enter a proper number.");
+                    scanner.close();
+                    break;
+
+
+            }
 
 
 
